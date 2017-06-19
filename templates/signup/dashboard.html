@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<body>
+
+<h2>heya</h2>
+
+{% for s in detail %}
+
+ {{ s.bio }}&emsp;{{s.location}}
+ <br>
+{% if s.profile_image %}
+<img src="{{s.profile_image.url }}" class="img-responsive">
+{% endif %}
+<a href="{% url 'signup:InternForm' %}">Hire an intern</a><br><br>
+{% endfor %}
+<a href="{% url 'signup:logout' %}">logout</a>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+<h1>Information about proferssor</h1>
+<h2>{{ profile.bio }}</h2>
+<h3>{{ profile.Description}}</h3>
+<h3>{{ profile.skills_needed}}</h3>
+<form method='POST' action=''>
+     {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Apply" />
+ <a href="{% url 'signup:apply' profile.pk %}">send</a>
+    <input type="submit" value="add {{ to_user }} as a friend" />
+    <h2>he is {{to_user}}</h2>
+</form>

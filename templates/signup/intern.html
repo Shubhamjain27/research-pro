@@ -1,0 +1,11 @@
+<h1>Hire an intern</h1>
+
+<h2>for free</h2>
+
+<form method='POST' action=''>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+
+
+</form>

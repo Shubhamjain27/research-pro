@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<body>
+
+<h2>heya </h2>
+
+{% for s in detail %}
+
+ {{ s.name }}&emsp;{{s.University}}
+ <br>
+
+<a href="{% url 'signup:projects' %}">view projects</a>
+{% endfor %}
+<a href="{% url 'signup:logout' %}">logout</a>
+</body>
+</html>
