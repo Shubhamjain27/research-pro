@@ -1,13 +1,18 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-<h1>Information about proferssor</h1>
-<h2>{{ profile.bio }}</h2>
-<h3>{{ profile.Description}}</h3>
-<h3>{{ profile.skills_needed}}</h3>
+
+
+<h1>Professor Home Page</h1><br><br>
+<h2>University : {{ profile.University }}</h2><br>
+<h3>Research areas : {{ profile.research_areas}}</h3><br>
+<h3>Project Description : {{ profile.Description}}</h3><br>
+<h3>Skills needed : {{ profile.skills_needed}}</h3><br>
 <form method='POST' action=''>
      {% csrf_token %}
     {{form}}
-    <input type="submit" value="Apply" />
+
  <a href="{% url 'signup:apply' profile.pk %}">send</a>
-    <input type="submit" value="add {{ to_user }} as a friend" />
-    <h2>he is {{to_user}}</h2>
+
+
 </form>
