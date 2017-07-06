@@ -15,14 +15,14 @@ class ProfileForm(forms.ModelForm):
     class Meta:
 
         model = Profile
-        fields = ['bio','location','profile_image']
+        fields = ['Name','University','research_areas','profile_image']
 
 
 class ProfileForm2(forms.ModelForm):
     class Meta:
 
         model = Profile2
-        fields = ['name', 'University', 'Country']
+        fields = ['name', 'University', 'Major']
 
 
 class InternForm(forms.ModelForm):

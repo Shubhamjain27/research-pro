@@ -7,6 +7,7 @@ app_name = 'signup'
 urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^signup2/$', views.signup_student, name='signup2'),
+    url(r'^prof/$', views.profhome, name='profhome'),
     url(r'^$', views.home, name='home'),
     url(r'^intern/$', views.internview, name='InternForm'),
     url(r'^student/$', views.home2, name='home2'),

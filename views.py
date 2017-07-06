@@ -162,3 +162,20 @@ def apply(request, pk):
         cover_letter = Cover()
     context = {"form": cover_letter}
     return render(request, 'signup/trial.html', context)
+
+
+@login_required
+def profapplications(request):
+    user = get_user(request)
+    info = Applicant2.objects.filter(prof=user)
+    bookdata = {
+        "detail": info
+    }
+
+    return render_to_response("signup/dashboard2.html", bookdata, Context(request))
+
+
+def profhome(request):
+    return render(request, 'signup/profhome.html')
+
+

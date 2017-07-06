@@ -12,9 +12,9 @@ def get_image_path(instance, filename):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField(max_length=500,null=True, blank=True)
-    location = models.CharField(max_length=30,null=True, blank=True)
-    birth_date = models.DateField(null=True, blank=True)
+    Name = models.CharField(max_length=600,null=True, blank=True)
+    University = models.CharField(max_length=1200,null=True, blank=True)
+    research_areas = models.TextField(max_length=600,null=True, blank=True)
     profile_image = models.ImageField(upload_to=get_image_path, blank=True, null=True,
                                       width_field="width_field", height_field="height_field")
     height_field = models.IntegerField(default=0)
@@ -38,7 +38,7 @@ class Profile2(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, null=True)
     University = models.CharField(max_length=100, null=True)
-    Country = models.CharField(max_length=100, null=True)
+    Major = models.CharField(max_length=100, null=True)
 
 
 @receiver(post_save,  sender=settings.AUTH_USER_MODEL)
@@ -62,14 +62,13 @@ class Friend(models.Model):
 
 
 class Applicant2(models.Model):
-    user = models.ForeignKey(User, related_name="student", null=True)
-    prof = models.ForeignKey(User, related_name="prof", null=True)
+    user = models.ForeignKey(User, related_name="student", null=True, blank=True)
+    prof = models.ForeignKey(User, related_name="prof", null=True, blank=True)
     cover_letter = models.TextField(max_length=10000, null=True, blank=True)
     user2 = models.TextField(max_length=10000, null=True, blank=True)
 
 
-    class Meta:
-        unique_together = (('user', 'prof'),)
+
     @classmethod
     def make_friend2(cls, current_user, prof):
         application2, created = cls.objects.get_or_create(user=current_user)
